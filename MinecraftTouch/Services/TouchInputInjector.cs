@@ -489,7 +489,7 @@ internal static class TouchInputInjector
 
     public static bool IsValidBinding(string? binding, bool command = false)
     {
-        if (string.IsNullOrWhiteSpace(binding)) return false;
+       if (binding is null || string.IsNullOrWhiteSpace(binding)) return false;
         var value = binding.Trim().ToUpperInvariant();
         if (command) return value is "SENS+" or "SENS-" or "GRAB" or "HIDE" or "SHOW" or "KEYBOARD" or "SETTINGS" or "MENU";
         if (value is "MOUSE_L" or "MOUSE_R" or "MOUSE_M" or "WHEEL_UP" or "WHEEL_DOWN") return true;
